@@ -51,8 +51,8 @@ class Maze:
             return
         x1 = self._x1 + (i * self._cell_size_x)
         y1 = self._y1 + (j * self._cell_size_y)
-        x2 = self._x1 + self._cell_size_x
-        y2 = self._y1 + self._cell_size_y
+        x2 = x1 + self._cell_size_x
+        y2 = y1 + self._cell_size_y
         self._cells[i][j].draw(x1, y1, x2, y2)
         self._animate()
 
