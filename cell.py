@@ -6,6 +6,7 @@ class Cell:
         self.has_right_wall = True
         self.has_top_wall = True
         self.has_bottom_wall = True
+        self.visited = False
 
         self._x1 = None
         self._x2 = None
@@ -51,6 +52,10 @@ class Cell:
         return Point(self._x1 + (abs(self._x2 - self._x1) // 2), self._y1 + (abs(self._y2 - self._y1) // 2))
 
     def draw_move(self, to_cell, undo=False):
+        fill_color = "red"
+        if undo:
+            fill_color = "gray"
+            
         move_line = Line(self.get_center(), to_cell.get_center())
-        self._win.draw_line(move_line, "gray" if undo else "red")
+        self._win.draw_line(move_line, fill_color)
         
